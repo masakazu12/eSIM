@@ -1,0 +1,8 @@
+{
+  "name": "Shopify eSIM 自動発行 LINE配信連携システム",
+  "description": "Shopify決済完了を起点にeSIM自動発行・二重発行防止・LINE認証連携・期限付き受取ポータル・監査ログ運用を実現する連携システム",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

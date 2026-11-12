@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopify eSIM 自動発行 LINE配信連携システム</title>
+    <meta name="description" content="Shopify決済完了を起点にeSIM自動発行・二重発行防止・LINE認証連携・期限付き受取ポータル・監査ログ運用を実現する連携システム" />
+    <meta property="og:title" content="Shopify eSIM 自動発行 LINE配信連携システム" />
+    <meta property="og:description" content="Shopify決済完了を起点にeSIM自動発行・二重発行防止・LINE認証連携・期限付き受取ポータル・監査ログ運用を実現する連携システム" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        var isExtensionError = function(msg, filename, stack) {
+          var combined = ((msg || '') + ' ' + (filename || '') + ' ' + (stack || '')).toLowerCase();
+          return combined.indexOf('metamask') !== -1 ||
+                 combined.indexOf('chrome-extension://') !== -1 ||
+                 combined.indexOf('moz-extension://') !== -1 ||
+                 combined.indexOf('safari-extension://') !== -1 ||
+                 combined.indexOf('failed to connect to metamask') !== -1 ||
+                 combined.indexOf('inpage.js') !== -1 ||
+                 combined.indexOf('ethereum') !== -1;
+        };
+        window.addEventListener('unhandledrejection', function(event) {
+          var r = event.reason;
+          var msg = typeof r === 'string' ? r : (r && r.message ? r.message : '');
+          var stack = r && r.stack ? r.stack : '';
+          if (isExtensionError(msg, '', stack)) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+          }
+        }, true);
+        window.addEventListener('error', function(event) {
+          var msg = event.message || '';
+          var filename = event.filename || '';
+          var stack = (event.error && event.error.stack) ? event.error.stack : '';
+          if (isExtensionError(msg, filename, stack)) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+          }
+        }, true);
+      })();
+    </script>
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased selection:bg-indigo-500 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
